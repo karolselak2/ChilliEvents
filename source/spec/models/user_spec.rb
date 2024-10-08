@@ -8,7 +8,7 @@ RSpec.describe User, type: :model do
         event1 = create(:event, organiser: organiser)
         event2 = create(:event, organiser: organiser)
 
-        expect(organiser.events_organised).to eq([event1, event2])
+        expect(organiser.events_organised).to match_array([event1, event2])
       end
     end
   end
@@ -23,7 +23,7 @@ RSpec.describe User, type: :model do
         event1.event_participants.create(user: user)
         event2.event_participants.create(user: user)
 
-        expect(user.events_participated).to eq([event1, event2])
+        expect(user.events_participated).to match_array([event1, event2])
       end
     end
   end

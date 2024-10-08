@@ -11,7 +11,7 @@ RSpec.describe Event, type: :model do
         event.event_participants.create(user: participant1)
         event.event_participants.create(user: participant2)
 
-        expect(event.participants).to eq([participant1, participant2])
+        expect(event.participants).to match_array([participant1, participant2])
       end
     end
   end

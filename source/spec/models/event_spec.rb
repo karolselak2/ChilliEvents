@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Event, type: :model do
   describe '#participants' do
-    describe 'when participants are assigned to the event' do
+    context 'when participants are assigned to the event' do
       it 'returns the participants' do
         event = create(:event)
         participant1 = create(:user)
@@ -17,11 +17,11 @@ RSpec.describe Event, type: :model do
   end
 
   describe '#organiser' do
-    describe 'when an organiser is assigned to the event' do
+    context 'when an organiser is assigned to the event' do
       it 'returns the organiser' do
         organiser = create(:user)
-        event = create(:event, organiser: organiser)
-  
+        event = create(:event, organiser:)
+
         expect(event.organiser).to eq(organiser)
       end
     end

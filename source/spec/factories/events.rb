@@ -8,7 +8,7 @@ FactoryBot.define do
 
     trait :with_participants do
       after(:create) do |event|
-        create_list(:event_participant, 3, event: event)
+        create_list(:event_participant, 3, event:)
       end
     end
   end

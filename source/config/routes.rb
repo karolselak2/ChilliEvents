@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :events do
+    get 'participants', to: 'events#participants'
+    post 'register_participant', to: 'events#register_participant'
+  end
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :users do
+    get 'events_participated', to: 'users#events_participated'
+    get 'events_organised', to: 'users#events_organised'
+  end
 end

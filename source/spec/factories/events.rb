@@ -6,7 +6,7 @@ FactoryBot.define do
     self.end { Time.current + 1.hour }
     participants_limit { 10 }
 
-    trait :with_participants do
+    trait :with_3_participants do
       after(:create) do |event|
         create_list(:event_participant, 3, event:)
       end

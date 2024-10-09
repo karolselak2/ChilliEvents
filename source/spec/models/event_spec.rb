@@ -26,4 +26,23 @@ RSpec.describe Event, type: :model do
       end
     end
   end
+
+  describe 'name validation' do
+    let(:user) { create(:user) }
+
+    context 'when a name is a string' do
+      it 'is valid' do
+        event = Event.new(name: 'Test Event', organiser: user)
+        expect(event).to be_valid
+      end
+    end
+
+    context 'when name is not given' do
+      it 'is invalid' do
+        event = Event.new(name: nil, organiser: user)
+        expect(event).not_to be_valid
+        expect(event.errors[:name]).to include("can't be blank")
+      end
+    end
+  end
 end
